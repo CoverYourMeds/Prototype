@@ -1,0 +1,10 @@
+{
+  "name": "CoverYourMeds",
+  "version": "0.1.0",
+  "main": "app.py",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "startbootstrap-sb-admin": "^4.0.0"
+  }
+}
