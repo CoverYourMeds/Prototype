@@ -13,6 +13,7 @@ if os.path.exists(os.path.join(os.getcwd(), "config.py")):
 else:
     app.config.from_pyfile(os.path.join(os.getcwd(), "config.env.py"))
 
+
 @app.route("/", methods=["GET"])
 @flask_optimize.optimize()
 def home():
