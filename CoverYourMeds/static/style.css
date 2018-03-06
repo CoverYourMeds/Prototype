@@ -354,3 +354,16 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
     background: #f8f9fa;
   }
 }
+
+
+@media (min-width: 992px) {
+  footer.sticky-footer {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  body.sidenav-toggled footer.sticky-footer {
+    width: 100%;
+  }
+}
