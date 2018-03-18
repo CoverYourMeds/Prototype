@@ -18,3 +18,9 @@ else:
 @flask_optimize.optimize()
 def home():
     return render_template("index.html")
+
+
+@app.route("/mymeds", methods=["GET"])
+@flask_optimize.optimize()
+def mymeds():
+    return render_template("mymeds.html")
