@@ -367,3 +367,10 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
     width: 100%;
   }
 }
+
+.card-note {
+  width: 100%;
+  position: relative;
+  min-width: 150px;
+  min-height: 150px;
+}

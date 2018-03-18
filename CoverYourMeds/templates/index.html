@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-{% include 'include/head.html' %}
-
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-
-{% include 'include/nav.html' %}
-
-<div class="content-wrapper">
+{% extends 'base.html' %}
+{% block body %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2">
-                <div class="card text-white bg-warning p-1">
+            <div class="col-lg-3 m-1">
+                <div class="card text-white bg-warning p-1 card-note">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fas fa-pills"></i>
@@ -26,53 +18,87 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-10">
+            <div class="col-lg-9 m-1">
                 <div class="card p-4">
                     <ul class="nav nav-tabs nav-fill">
                         <li class="nav-item">
-                            <a class="nav-link active" id="sun" href="#">Sun</a>
+                            <a class="nav-link active" id="sun-tab" data-toggle="tab" href="#sun" role="tab"
+                               aria-controls="sun" aria-selected="true">Sun</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="mon" href="#">Mon</a>
+                            <a class="nav-link" id="mon-tab" data-toggle="tab" href="#mon" role="tab"
+                               aria-controls="mon" aria-selected="false">Mon</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tues" href="#">Tues</a>
+                            <a class="nav-link" id="tues-tab" data-toggle="tab" href="#tues" role="tab"
+                               aria-controls="tues" aria-selected="false">Tues</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="weds" href="#">Weds</a>
+                            <a class="nav-link" id="wed-tab" data-toggle="tab" href="#wed" role="tab"
+                               aria-controls="wed" aria-selected="false">Wed</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="thurs" href="#">Thurs</a>
+                            <a class="nav-link" id="thur-tab" data-toggle="tab" href="#thur" role="tab"
+                               aria-controls="thur" aria-selected="false">Thur</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="fri" href="#">Fri</a>
+                            <a class="nav-link" id="fri-tab" data-toggle="tab" href="#fri" role="tab"
+                               aria-controls="fri" aria-selected="false">Fri</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="sat" href="#">Sat</a>
+                            <a class="nav-link" id="sat-tab" data-toggle="tab" href="#sat" role="tab"
+                               aria-controls="sat" aria-selected="false">Sat</a>
                         </li>
                     </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="sun" role="tabpanel" aria-labelledby="sun-tab">
+                            <table class="table table-bordered">
+                                <col width="25">
+                                <col width="200">
+                                <tr>
+                                    <td>
+                                        9am
+                                    </td>
+                                    <td>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">Adderal</li>
+                                            <li class="list-group-item">Pain Medication</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        12pm
+                                    </td>
+                                    <td>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">Allergy Medication</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="mon" role="tabpanel" aria-labelledby="mon-tab">
+                            Monday
+                        </div>
+                        <div class="tab-pane fade" id="tues" role="tabpanel" aria-labelledby="tues-tab">
+                            Tuesday
+                        </div>
+                        <div class="tab-pane fade" id="wed" role="tabpanel" aria-labelledby="wed-tab">
+                            Wednesday
+                        </div>
+                        <div class="tab-pane fade" id="thur" role="tabpanel" aria-labelledby="thur-tab">
+                            Thursday
+                        </div>
+                        <div class="tab-pane fade" id="fri" role="tabpanel" aria-labelledby="fri-tab">
+                            Friday
+                        </div>
+                        <div class="tab-pane fade" id="sat" role="tabpanel" aria-labelledby="sat-tab">
+                            Saturday
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-        <div class="container">
-            <div class="text-center">
-                <small>Copyright © CoverYourMeds 2018</small>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fa fa-angle-up"></i>
-    </a>
-
-    {% include 'include/scripts.html' %}
-
-</div>
-</body>
-
-</html>
+{% endblock %}
