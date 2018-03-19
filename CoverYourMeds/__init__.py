@@ -24,3 +24,9 @@ def home():
 @flask_optimize.optimize()
 def mymeds():
     return render_template("mymeds.html")
+
+
+@app.route("/settings", methods=["GET"])
+@flask_optimize.optimize()
+def settings():
+    return render_template("settings.html")

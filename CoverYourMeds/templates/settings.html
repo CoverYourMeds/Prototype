@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card p-4">
+
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card p-4">
+                    <input class="form-control m-1" type="text" title="Name" placeholder="Name">
+                    <input class="form-control m-1" type="datetime-local" title="Birthdate" placeholder="Birthdate">
+                    <label>
+                        Blood Type
+                        <select class="form-control m-1">
+                            <option>A</option>
+                            <option>B</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
