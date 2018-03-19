@@ -1,2 +1,2 @@
 flask
-flask-optimize
+flask_sqlalchemy
