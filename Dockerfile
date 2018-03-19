@@ -8,7 +8,7 @@ ADD requirements.txt /opt/coveryourmeds
 WORKDIR /opt/coveryourmeds
 
 RUN apt-get -yq update && \
-    apt-get -yq install libsasl2-dev libldap2-dev libssl-dev && \
+    apt-get -yq install libsasl2-dev libssl-dev && \
     pip install -r requirements.txt && \
     apt-get -yq clean all
 
