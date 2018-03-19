@@ -1,0 +1,4 @@
+.idea/
+CoverYourMeds/__pycache__/
+CoverYourMeds/static/vendor/
+node_modules/
