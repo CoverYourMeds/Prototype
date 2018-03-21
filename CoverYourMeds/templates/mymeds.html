@@ -4,51 +4,44 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
-                       href="#list-home" role="tab" aria-controls="home">Adderall</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
-                       href="#list-profile" role="tab" aria-controls="profile">Ibuprofen</a>
+                    {% for medication in medications %}
+                        <a class="list-group-item list-group-item-action" id="list-{{ medication.name | lower }}-list"
+                           data-toggle="list" href="#list-{{ medication.name | lower }}" role="tab"
+                           aria-controls="home">{{ medication.name }}</a>
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel"
-                         aria-labelledby="list-home-list">
-                        <div class="card">
-                            <div class="card-header">
-                                Adderall 50 mg
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td>
-                                            Doctor Smith <i class="fa fa-info-circle"></i>
-                                        </td>
-                                        <td>
-                                            Pills Remaining: 15
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            Next Refill Needed: 3/28/18
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                        <div class="card">
-                            <div class="card-header">
-                                Ibuprofen
-                            </div>
-                            <div class="card-body">
-
+                    {% for medication in medications %}
+                        <div class="tab-pane fade show" id="list-{{ medication.name | lower }}" role="tabpanel"
+                             aria-labelledby="list-{{ medication.name | lower }}-list">
+                            <div class="card">
+                                <div class="card-header">
+                                    {{ medication.name }}
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td>
+                                                Doctor Smith <i class="fa fa-info-circle"></i>
+                                            </td>
+                                            <td>
+                                                Pills Remaining: 15
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td>
+                                                Next Refill Needed: 3/28/18
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

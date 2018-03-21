@@ -13,3 +13,4 @@ cd CoverYourMeds/static
 yarn install
 ```
 
+ORM: [flask_sqlalchemy](http://flask-sqlalchemy.pocoo.org)

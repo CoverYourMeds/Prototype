@@ -15,6 +15,9 @@ else:
 # Create DB after config
 db = SQLAlchemy(app)
 
+# Import Model after DB set
+from CoverYourMeds.models import Medication
+
 
 @app.route("/", methods=["GET"])
 def home():
@@ -24,7 +27,11 @@ def home():
 
 @app.route("/mymeds", methods=["GET"])
 def mymeds():
-    return render_template("mymeds.html")
+    db.create_all()
+
+    # Grab all medications from database
+    medications = Medication.query.all()
+    return render_template("mymeds.html", medications=medications)
 
 
 @app.route("/settings", methods=["GET"])
