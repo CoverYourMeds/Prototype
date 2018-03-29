@@ -55,46 +55,148 @@
                             <table class="table table-bordered">
                                 <col width="25">
                                 <col width="200">
-                                <tr>
-                                    <td>
-                                        9am
-                                    </td>
-                                    <td>
-                                        <ul class="list-group">
-                                            <li class="list-group-item">Adderal</li>
-                                            <li class="list-group-item">Pain Medication</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        12pm
-                                    </td>
-                                    <td>
-                                        <ul class="list-group">
-                                            <li class="list-group-item">Allergy Medication</li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                {% for time in schedule["sun"] %}
+                                    <tr>
+                                        <td>
+                                            {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
+                                                am{% endif %}
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                {% for value in schedule["sun"][time] %}
+                                                    <li class="list-group-item">{{ value.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
                             </table>
                         </div>
                         <div class="tab-pane fade" id="mon" role="tabpanel" aria-labelledby="mon-tab">
-                            Monday
+                            <table class="table table-bordered">
+                                <col width="25">
+                                <col width="200">
+                                {% for time in schedule["mon"] %}
+                                    <tr>
+                                        <td>
+                                            {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
+                                                am{% endif %}
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                {% for value in schedule["mon"][time] %}
+                                                    <li class="list-group-item">{{ value.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                         <div class="tab-pane fade" id="tues" role="tabpanel" aria-labelledby="tues-tab">
-                            Tuesday
+                            <table class="table table-bordered">
+                                <col width="25">
+                                <col width="200">
+                                {% for time in schedule["tues"] %}
+                                    <tr>
+                                        <td>
+                                            {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
+                                                am{% endif %}
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                {% for value in schedule["tues"][time] %}
+                                                    <li class="list-group-item">{{ value.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                         <div class="tab-pane fade" id="wed" role="tabpanel" aria-labelledby="wed-tab">
-                            Wednesday
+                            <table class="table table-bordered">
+                                <col width="25">
+                                <col width="200">
+                                {% for time in schedule["wed"] %}
+                                    <tr>
+                                        <td>
+                                            {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
+                                                am{% endif %}
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                {% for value in schedule["wed"][time] %}
+                                                    <li class="list-group-item">{{ value.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                         <div class="tab-pane fade" id="thur" role="tabpanel" aria-labelledby="thur-tab">
-                            Thursday
+                            <table class="table table-bordered">
+                                <col width="25">
+                                <col width="200">
+                                {% for time in schedule["thur"] %}
+                                    <tr>
+                                        <td>
+                                            {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
+                                                am{% endif %}
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                {% for value in schedule["thur"][time] %}
+                                                    <li class="list-group-item">{{ value.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                         <div class="tab-pane fade" id="fri" role="tabpanel" aria-labelledby="fri-tab">
-                            Friday
+                            <table class="table table-bordered">
+                                <col width="25">
+                                <col width="200">
+                                {% for time in schedule["fri"] %}
+                                    <tr>
+                                        <td>
+                                            {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
+                                                am{% endif %}
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                {% for value in schedule["fri"][time] %}
+                                                    <li class="list-group-item">{{ value.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                         <div class="tab-pane fade" id="sat" role="tabpanel" aria-labelledby="sat-tab">
-                            Saturday
+                            <table class="table table-bordered">
+                                <col width="25">
+                                <col width="200">
+                                {% for time in schedule["sat"] %}
+                                    <tr>
+                                        <td>
+                                            {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
+                                                am{% endif %}
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                {% for value in schedule["sat"][time] %}
+                                                    <li class="list-group-item">{{ value.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                     </div>
                 </div>
