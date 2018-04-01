@@ -5,6 +5,7 @@ class User(db.Model):
     __tablename__ = "users"
     username = db.Column(db.VARCHAR(50), primary_key=True, nullable=False, unique=True)
     password = db.Column(db.VARCHAR(50), nullable=False)
+    type = db.Column(db.VARCHAR(30), nullable=False)
 
 
 class Doctor(db.Model):
@@ -20,6 +21,7 @@ class Medication(db.Model):
     pills = db.Column(db.Integer)
     refill_date = db.Column(db.VARCHAR(35))
     doc_id = db.Column(db.Integer, db.ForeignKey("doctors.doc_id"))
+    username = db.Column(db.VARCHAR(50))
 
     doctor = db.relationship(Doctor, backref=db.backref("doctor", uselist=False))
 
@@ -36,3 +38,8 @@ class Times(db.Model):
     thur = db.Column(db.Boolean)
     fri = db.Column(db.Boolean)
     sat = db.Column(db.Boolean)
+
+
+class MissedMedications(db.Model):
+    __tablename__ = "missed_medications"
+    id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True)

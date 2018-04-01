@@ -1,6 +1,6 @@
 import os
 
-from flask import render_template, Flask
+from flask import render_template, Flask, make_response, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -16,16 +16,42 @@ else:
 db = SQLAlchemy(app)
 
 # Import Model after DB set
-from CoverYourMeds.models import Medication, Times
+from CoverYourMeds.models import Medication, Times, User
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == 'GET':
+        print(request.method)
+        return render_template("login.html")
+    else:
+        print(request.method)
+        username = request.form['email']
+        user = User.query.filter_by(username=username).first()
+        resp = make_response(redirect("/"))
+        if user.password == request.form['password']:
+            resp.set_cookie('user', username)
+        else:
+            resp.set_cookie('user', username, expires=0)
+        return resp
+
+
+@app.route("/logout", methods=["GET"])
+def logout():
+    resp = make_response(redirect("/"))
+    resp.set_cookie('user', '', expires=0)
+    return resp
 
 
 @app.route("/", methods=["GET"])
 def home():
-    db.create_all()
+    if request.cookies.get('user'):
+        db.create_all()
 
-    times = Times.query.all()
-    schedule = make_schedule(times)
-    return render_template("index.html", schedule=schedule)
+        times = Times.query.all()
+        schedule = make_schedule(times)
+        return render_template("index.html", schedule=schedule)
+    return redirect("/login")
 
 
 @app.route("/mymeds", methods=["GET"])
