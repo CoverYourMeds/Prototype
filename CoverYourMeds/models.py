@@ -12,6 +12,7 @@ class Medication(db.Model):
     med_id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True)
     name = db.Column(db.VARCHAR(150), nullable=False)
     pills = db.Column(db.Integer)
+    refill_date = db.Column(db.VARCHAR(35))
 
 
 class Times(db.Model):
