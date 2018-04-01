@@ -7,13 +7,21 @@ class User(db.Model):
     password = db.Column(db.VARCHAR(50), nullable=False)
 
 
+class Doctor(db.Model):
+    __tablename__ = "doctors"
+    doc_id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True)
+    name = db.Column(db.VARCHAR(150), nullable=False)
+
+
 class Medication(db.Model):
     __tablename__ = "meds"
     med_id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True)
     name = db.Column(db.VARCHAR(150), nullable=False)
     pills = db.Column(db.Integer)
     refill_date = db.Column(db.VARCHAR(35))
-    doctor = db.Column(db.Integer, db.ForeignKey("doctor.doc_id"))
+    doc_id = db.Column(db.Integer, db.ForeignKey("doctors.doc_id"))
+
+    doctor = db.relationship(Doctor, backref=db.backref("doctor", uselist=False))
 
 
 class Times(db.Model):
@@ -28,9 +36,3 @@ class Times(db.Model):
     thur = db.Column(db.Boolean)
     fri = db.Column(db.Boolean)
     sat = db.Column(db.Boolean)
-
-
-class Doctor(db.Model):
-    __tablename__ = "doctors"
-    doc_id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True)
-    name = db.Column(db.VARCHAR(150), nullable=False)
