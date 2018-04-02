@@ -56,16 +56,20 @@ def home():
 
 @app.route("/mymeds", methods=["GET"])
 def mymeds():
-    db.create_all()
+    if request.cookies.get('user'):
+        db.create_all()
 
-    # Grab all medications from database
-    medications = Medication.query.all()
-    return render_template("mymeds.html", medications=medications)
+        # Grab all medications from database
+        medications = Medication.query.all()
+        return render_template("mymeds.html", medications=medications)
+    return redirect("/login")
 
 
 @app.route("/settings", methods=["GET"])
 def settings():
-    return render_template("settings.html")
+    if request.cookies.get('user'):
+        return render_template("settings.html")
+    return redirect("/login")
 
 
 def make_schedule(times):
