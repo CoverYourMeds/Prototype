@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-4">
+                 <ul class="list-group">
+                    {% for doctor in doctors %}
+                        <li class="list-group-item">Dr. {{ doctor.name }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

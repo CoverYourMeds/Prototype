@@ -16,7 +16,7 @@ else:
 db = SQLAlchemy(app)
 
 # Import Model after DB set
-from CoverYourMeds.models import Medication, Times, User
+from CoverYourMeds.models import Medication, Times, User, Doctor
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -64,6 +64,13 @@ def mymeds():
         return render_template("mymeds.html", medications=medications)
     return redirect("/login")
 
+@app.route("/mydocs",methods=["GET"])
+def mydocs():
+    if request.cookies.get('user'):
+        db.create_all()
+        doctors=Doctor.query.all()
+        return render_template("mydocs.html", doctors=doctors)
+    return redirect("/login")
 
 @app.route("/settings", methods=["GET"])
 def settings():
