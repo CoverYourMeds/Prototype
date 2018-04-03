@@ -9,7 +9,6 @@ Assets require [yarn](https://yarnpkg.com/lang/en/docs/install/)
 
 ## Grab UI dependencies
 ```
-cd CoverYourMeds/static
 yarn install
 npm install -g gulp
 gulp
