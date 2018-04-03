@@ -64,13 +64,15 @@ def mymeds():
         return render_template("mymeds.html", medications=medications)
     return redirect("/login")
 
-@app.route("/mydocs",methods=["GET"])
+
+@app.route("/mydocs", methods=["GET"])
 def mydocs():
     if request.cookies.get('user'):
         db.create_all()
-        doctors=Doctor.query.all()
+        doctors = Doctor.query.all()
         return render_template("mydocs.html", doctors=doctors)
     return redirect("/login")
+
 
 @app.route("/settings", methods=["GET"])
 def settings():
