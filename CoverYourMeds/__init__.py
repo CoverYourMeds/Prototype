@@ -67,6 +67,18 @@ def mymeds():
     return redirect("/login")
 
 
+@app.route("/newMed", methods=["POST"])
+def newMed():
+    if request.cookies.get('user'):
+        data = request.form
+        newMedication = Medication(data['med-name'], data['pills'], data['refill_date'], data['doc_id'],
+                                   request.cookies.get('user'))
+        db.session.add(newMedication)
+        db.session.commit()
+        return redirect("/")
+    return redirect("/login")
+
+
 @app.route("/mydocs", methods=["GET"])
 def mydocs():
     if request.cookies.get('user'):

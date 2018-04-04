@@ -8,18 +8,25 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <input class="form-control m-1" type="text" title="Medication Name" placeholder="Medication Name">
-                <input class="form-control m-1" type="number" title="Total Pills" placeholder="Total Pills">
-                <select class="form-control m-1" title="Prescribing Doctor">
-                    {% for doctor in doctors %}
-                       <option value="{{ doctor.doc_id}}">Dr. {{ doctor.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Add New Medication</button>
-            </div>
+            <form id="newMedicationForm" action="/newMed" method="post">
+                <div class="modal-body">
+                    <input class="form-control m-1" type="text" title="Medication Name" placeholder="Medication Name"
+                           name="med-name">
+                    <input class="form-control m-1" type="number" min="0" title="Total Pills" placeholder="Total Pills"
+                           name="pills">
+                    <input class="form-control m-1" type="date" title="Refill Date" placeholder="Refill Date"
+                           name="refill_date">
+                    <select class="form-control m-1" title="Prescribing Doctor" name="doc_id">
+                        {% for doctor in doctors %}
+                            <option value="{{ doctor.doc_id }}">Dr. {{ doctor.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" form="newMedicationForm" class="btn btn-primary" value="Add new Medication">
+                </div>
+            </form>
         </div>
     </div>
 </div>

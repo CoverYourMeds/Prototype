@@ -25,6 +25,13 @@ class Medication(db.Model):
 
     doctor = db.relationship(Doctor, backref=db.backref("doctor", uselist=False))
 
+    def __init__(self, name, pills, refill_date, doc_id, username):
+        self.name = name
+        self.pills = pills
+        self.refill_date = refill_date
+        self.doc_id = doc_id
+        self.username = username
+
 
 class Times(db.Model):
     __tablename__ = "times"
