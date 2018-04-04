@@ -13,6 +13,9 @@ class Doctor(db.Model):
     doc_id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True)
     name = db.Column(db.VARCHAR(150), nullable=False)
 
+    def __init__(self,name):
+        self.name=name
+
 
 class Medication(db.Model):
     __tablename__ = "meds"
