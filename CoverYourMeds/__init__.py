@@ -50,7 +50,8 @@ def home():
 
         times = Times.query.all()
         schedule = make_schedule(times)
-        return render_template("index.html", schedule=schedule)
+        doctors = Doctor.query.all()
+        return render_template("index.html", schedule=schedule, doctors=doctors)
     return redirect("/login")
 
 
@@ -61,7 +62,8 @@ def mymeds():
 
         # Grab all medications from database
         medications = Medication.query.all()
-        return render_template("mymeds.html", medications=medications)
+        doctors = Doctor.query.all()
+        return render_template("mymeds.html", medications=medications, doctors=doctors)
     return redirect("/login")
 
 
@@ -77,7 +79,8 @@ def mydocs():
 @app.route("/settings", methods=["GET"])
 def settings():
     if request.cookies.get('user'):
-        return render_template("settings.html")
+        doctors = Doctor.query.all()
+        return render_template("settings.html", doctors=doctors)
     return redirect("/login")
 
 

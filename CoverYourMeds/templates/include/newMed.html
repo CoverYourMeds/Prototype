@@ -12,7 +12,9 @@
                 <input class="form-control m-1" type="text" title="Medication Name" placeholder="Medication Name">
                 <input class="form-control m-1" type="number" title="Total Pills" placeholder="Total Pills">
                 <select class="form-control m-1" title="Prescribing Doctor">
-                    <option>Doctor Smith</option>
+                    {% for doctor in doctors %}
+                       <option value="{{ doctor.doc_id}}">Dr. {{ doctor.name }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="modal-footer">
