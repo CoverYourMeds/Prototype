@@ -50,6 +50,10 @@
     display: none;
 }
 
+.dropdown-toggle::after {
+    display: none;
+}
+
 #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link {
     position: relative;
     min-width: 45px;
