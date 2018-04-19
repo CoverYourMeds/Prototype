@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-9">
@@ -44,15 +45,26 @@
                                         <td>
                                             {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
                                                 am{% endif %}
-                                        </td>
-                                        <td>
-                                            <ul class="list-group">
-                                                {% for value in schedule["sun"][time] %}
-                                                    <li class="list-group-item"><i class="fa fa-pills"></i>&nbsp;{{ value.name }}</li>
+                                                </td>
+                                                
+                                                <td>
+                                                    {% for value in schedule["sun"][time] %}
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                            <i class="fa fa-pills"></i>
+                                                            {{ value.name }}
+                                                        </a>
+                                                        <div class="collapse list-group-submenu">
+                                                            <div class="list-group-item sub-item">
+                                                                <h4>Did you remember to take this medication?</h4>
+                                                                <button type="button" class="btn btn-success">Yes</button>
+                                                                <button type="button" class="btn btn-danger">No</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 {% endfor %}
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
                                 {% endfor %}
                             </table>
                         </div>
@@ -66,12 +78,23 @@
                                             {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
                                                 am{% endif %}
                                         </td>
+                                        
                                         <td>
-                                            <ul class="list-group">
-                                                {% for value in schedule["mon"][time] %}
-                                                    <li class="list-group-item"><i class="fa fa-pills"></i>&nbsp;{{ value.name }}</li>
-                                                {% endfor %}
-                                            </ul>
+                                            {% for value in schedule["mon"][time] %}
+                                                <div class="list-group">
+                                                    <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                        <i class="fa fa-pills"></i>
+                                                        {{ value.name }}
+                                                    </a>
+                                                    <div class="collapse list-group-submenu">
+                                                        <div class="list-group-item sub-item">
+                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <button type="button" class="btn btn-success">Yes</button>
+                                                            <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -85,14 +108,25 @@
                                     <tr>
                                         <td>
                                             {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
-                                                am{% endif %}
+                                            am{% endif %}
                                         </td>
+                                            
                                         <td>
-                                            <ul class="list-group">
-                                                {% for value in schedule["tues"][time] %}
-                                                    <li class="list-group-item"><i class="fa fa-pills"></i>&nbsp;{{ value.name }}</li>
-                                                {% endfor %}
-                                            </ul>
+                                            {% for value in schedule["tues"][time] %}
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                    <i class="fa fa-pills"></i>
+                                                    {{ value.name }}
+                                                </a>
+                                                <div class="collapse list-group-submenu">
+                                                    <div class="list-group-item sub-item">
+                                                        <h4>Did you remember to take this medication?</h4>
+                                                        <button type="button" class="btn btn-success">Yes</button>
+                                                        <button type="button" class="btn btn-danger">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -106,16 +140,27 @@
                                     <tr>
                                         <td>
                                             {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
-                                                am{% endif %}
-                                        </td>
-                                        <td>
-                                            <ul class="list-group">
+                                            am{% endif %}
+                                            </td>
+                                            
+                                            <td>
                                                 {% for value in schedule["wed"][time] %}
-                                                    <li class="list-group-item"><i class="fa fa-pills"></i>&nbsp;{{ value.name }}</li>
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                            <i class="fa fa-pills"></i>
+                                                            {{ value.name }}
+                                                        </a>
+                                                        <div class="collapse list-group-submenu">
+                                                            <div class="list-group-item sub-item">
+                                                                <h4>Did you remember to take this medication?</h4>
+                                                                <button type="button" class="btn btn-success">Yes</button>
+                                                                <button type="button" class="btn btn-danger">No</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 {% endfor %}
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
                                 {% endfor %}
                             </table>
                         </div>
@@ -127,14 +172,25 @@
                                     <tr>
                                         <td>
                                             {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
-                                                am{% endif %}
+                                            am{% endif %}
                                         </td>
+                                            
                                         <td>
-                                            <ul class="list-group">
-                                                {% for value in schedule["thur"][time] %}
-                                                    <li class="list-group-item"><i class="fa fa-pills"></i>&nbsp;{{ value.name }}</li>
-                                                {% endfor %}
-                                            </ul>
+                                            {% for value in schedule["thur"][time] %}
+                                                <div class="list-group">
+                                                    <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                        <i class="fa fa-pills"></i>
+                                                        {{ value.name }}
+                                                    </a>
+                                                    <div class="collapse list-group-submenu">
+                                                        <div class="list-group-item sub-item">
+                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <button type="button" class="btn btn-success">Yes</button>
+                                                            <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -148,14 +204,25 @@
                                     <tr>
                                         <td>
                                             {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
-                                                am{% endif %}
+                                            am{% endif %}
                                         </td>
+                                            
                                         <td>
-                                            <ul class="list-group">
-                                                {% for value in schedule["fri"][time] %}
-                                                    <li class="list-group-item"><i class="fa fa-pills"></i>&nbsp;{{ value.name }}</li>
-                                                {% endfor %}
-                                            </ul>
+                                            {% for value in schedule["fri"][time] %}
+                                                <div class="list-group">
+                                                    <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                        <i class="fa fa-pills"></i>
+                                                        {{ value.name }}
+                                                    </a>
+                                                    <div class="collapse list-group-submenu">
+                                                        <div class="list-group-item sub-item">
+                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <button type="button" class="btn btn-success">Yes</button>
+                                                            <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -169,14 +236,25 @@
                                     <tr>
                                         <td>
                                             {% if time >= 12 %} {{ time - 12 }}pm{% elif time < 12 %}{{ time }}
-                                                am{% endif %}
+                                            am{% endif %}
                                         </td>
+                                            
                                         <td>
-                                            <ul class="list-group">
-                                                {% for value in schedule["sat"][time] %}
-                                                    <li class="list-group-item"><i class="fa fa-pills"></i>&nbsp;{{ value.name }}</li>
-                                                {% endfor %}
-                                            </ul>
+                                            {% for value in schedule["sat"][time] %}
+                                                <div class="list-group">
+                                                    <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                        <i class="fa fa-pills"></i>
+                                                        {{ value.name }}
+                                                    </a>
+                                                    <div class="collapse list-group-submenu">
+                                                        <div class="list-group-item sub-item">
+                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <button type="button" class="btn btn-success">Yes</button>
+                                                            <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -190,4 +268,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
