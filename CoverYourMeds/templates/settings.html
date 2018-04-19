@@ -1,21 +1,27 @@
 {% extends 'base.html' %}
 {% block body %}
     <div class="container-fluid">
+        <h3> User Information </h3>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card p-4">
-
-                </div>
-            </div>
             <div class="col-lg-8">
                 <div class="card p-4">
                     <input class="form-control m-1" type="text" title="Name" placeholder="Name">
-                    <input class="form-control m-1" type="datetime-local" title="Birthdate" placeholder="Birthdate">
+                        <br>
+                        <label>
+                            Date of Birth
+                            <input class="form-control m-1" type="date" title="Birthdate" placeholder="Birthdate">
+                        </label>
                     <label>
                         Blood Type
                         <select class="form-control m-1">
-                            <option>A</option>
-                            <option>B</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
                         </select>
                     </label>
                 </div>
