@@ -1,16 +1,53 @@
 {% extends 'base.html' %}
 {% block body %}
     <div class="container-fluid">
+{#        <div class="row">#}
+{##}
+{#            <div class="col-sm-4">#}
+{#                 <ul class="list-group">#}
+{#                    {% for doctor in doctors %}#}
+{#                        <li class="list-group-item">Dr. {{ doctor.name }}</li>#}
+{#                    {% endfor %}#}
+{#                  </ul>#}
+{#            </div>#}
+{#        </div>#}
         <div class="row">
-
-            <div class="col-sm-4">
-                 <ul class="list-group">
-                    {% for doctor in doctors %}
-                        <li class="list-group-item">Dr. {{ doctor.name }}</li>
+            <div class="col-sm">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    {%  for doctor in doctors %}
+                    <a class="nav-link {%  if loop.index == 1 %}active{% endif %}" id="v-pills-{{ doctor.name }}-tab" data-toggle="pill" href="#v-pills-{{ doctor.name }}" role="tab"
+                       aria-controls-="v-pills-{{ doctor.name }}"aria-selected="{%  if loop.index == 1 %}true{% else %}false
+                    {% endif %}">{{ doctor.name }}</a>
                     {% endfor %}
-                  </ul>
+                </div>
+            </div>
+            <div class="col-xl">
+                <div class="tab-content" id="v-pills-tabContent">
+                    {%  for doctor in doctors %}
+                    <div class="tab-pane fade  {%  if loop.index == 1 %}show active{% endif %}" id="v-pills-{{ doctor.name }}" role="tabpanel" aria-labelledby="v-pills-{{ doctor.name }}-tab">
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Medications</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for medication in medications %}
+                                    {% if medication.doctor.name==doctor.name %}
+                                        <tr>
+                                            <td>{{ medication.name }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+
+
+
     </div>
 {% endblock %}

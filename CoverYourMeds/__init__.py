@@ -94,7 +94,8 @@ def mydocs():
     if request.cookies.get('user'):
         db.create_all()
         doctors = Doctor.query.all()
-        return render_template("mydocs.html", doctors=doctors)
+        medications = Medication.query.all()
+        return render_template("mydocs.html", doctors=doctors, medications=medications)
     return redirect("/login")
 
 
