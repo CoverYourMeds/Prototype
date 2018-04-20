@@ -5,7 +5,12 @@
 
 {% block nav %}
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-    {% include 'include/nav.html' %}
+    {% if request.cookies.get('user')=="caretaker@gmail.com" %}
+        {% include 'include/caretakerNav.html' %}
+    {% else %}
+        {% include 'include/nav.html' %}
+    {% endif %}
+
 {% endblock %}
 
 

@@ -1,0 +1,22 @@
+<div class="modal show" tabindex="-1" role="dialog" aria-labelledby="userSelectLabel" aria-hidden="true" id="userSelect">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Change User</h3>
+            </div>
+            <div class="modal-body">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="selectUserDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select a User
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="selectUserDropdown">
+                        {% for user in medUserList %}
+                            <a class="dropdown-item" href="#">{{ user.username }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

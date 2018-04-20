@@ -47,11 +47,16 @@ def logout():
 def home():
     if request.cookies.get('user'):
         db.create_all()
+        curUser=User.query.filter_by(username=request.cookies.get('user')).first()
+        if curUser.type=='caretaker':
+            medUserList=User.query.filter_by(type='user').all()
 
-        times = Times.query.all()
-        schedule = make_schedule(times)
-        doctors = Doctor.query.all()
-        return render_template("index.html", schedule=schedule, doctors=doctors)
+            return render_template("base.html",medUserList=medUserList)
+        else:
+            times = Times.query.all()
+            schedule = make_schedule(times)
+            doctors = Doctor.query.all()
+            return render_template("index.html", schedule=schedule, doctors=doctors)
     return redirect("/login")
 
 

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/">
+        <img src="/static/images/CYM_25px.png" />
+        CoverYourMeds</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            {% if medUser %}
+                <li>
+                    <a class="nav-link mr-lg-2" href="/{{ medUser.username }}/mymeds">Manage {{ medUser}}'s Meds</a>
+                </li>
+            {% endif %}
+
+            <li>
+                <a class="nav-link mr-lg-2" href="#"data-toggle="modal" data-target="#userSelect">Change User</a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="userDropdown" href="#" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-user"></i>
+                    {{ request.cookies.get('user') }}
+                    <span class="d-lg-none">User
+            </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="/settings">
+                        <div class="dropdown-message small">Settings
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="/logout">
+                        <div class="dropdown-message small">Logout
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% include 'include/userSelect.html' %}
+

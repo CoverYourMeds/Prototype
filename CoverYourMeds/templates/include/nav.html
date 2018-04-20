@@ -67,7 +67,7 @@
                 <a class="nav-link dropdown-toggle mr-lg-2" id="userDropdown" href="#" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
-                    Username
+                    {{ request.cookies.get('user') }}
                     <span class="d-lg-none">User
             </span>
                 </a>
