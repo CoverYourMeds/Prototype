@@ -59,6 +59,18 @@ def home():
             return render_template("index.html", schedule=schedule, doctors=doctors)
     return redirect("/login")
 
+@app.route("/caretakerview")
+def caretakerview():
+    if request.cookies.get('user'):
+        db.create_all()
+        curUser=User.query.filter_by(username=request.cookies.get('user')).first()
+        times = Times.query.all()
+        schedule = make_schedule(times)
+        doctors = Doctor.query.all()
+        medUser = User.query.filter_by(type='user').first()
+        medUserList = User.query.filter_by(type='user').all()
+        return render_template("index.html", schedule=schedule, doctors=doctors,medUserList=medUserList ,medUser=medUser)
+    return redirect("/login")
 
 @app.route("/mymeds", methods=["GET"])
 def mymeds():
