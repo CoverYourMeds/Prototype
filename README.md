@@ -3,6 +3,17 @@ Medication Management
 
 View a hosted version at http://coveryourmeds-coveryourmeds.a.csh.rit.edu/
 
+## Features
+
+//TODO
+
+## Usage
+
+Account | Password
+--------|---------
+`user@gmail.com` | `password`
+`caretaker@gmail.com` | `password`
+
 ## Development
 
 ### Grab development dependencies
