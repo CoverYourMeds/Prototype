@@ -100,7 +100,7 @@ def newMed():
 def newDoc():
     if request.cookies.get('user'):
         data = request.form
-        newDoctor = Doctor(data['doc-name'])
+        newDoctor = Doctor(data['doc-name'],data['doc-phone'])
         db.session.add(newDoctor)
         db.session.commit()
         return redirect("/")

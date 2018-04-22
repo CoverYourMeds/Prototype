@@ -14,8 +14,9 @@ class Doctor(db.Model):
     name = db.Column(db.VARCHAR(150), nullable=False)
     phone = db.Column(db.VARCHAR(20), nullable=False)
 
-    def __init__(self,name):
+    def __init__(self,name,phone):
         self.name=name
+        self.phone=phone
 
 
 class Medication(db.Model):
