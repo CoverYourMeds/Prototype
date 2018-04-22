@@ -120,7 +120,8 @@ def mydocs():
 def settings():
     if request.cookies.get('user'):
         doctors = Doctor.query.all()
-        return render_template("settings.html", doctors=doctors)
+        curUser = User.query.filter_by(username=request.cookies.get('user')).first()
+        return render_template("settings.html", doctors=doctors, curUser=curUser)
     return redirect("/login")
 
 

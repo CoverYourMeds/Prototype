@@ -24,7 +24,7 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <td>
-                                                Doctor {{ medication.doctor.name }} <i class="fa fa-info-circle"></i>
+                                                Doctor {{ medication.doctor.name }} <a data-toggle="tooltip" data-placement="top" title="Phone: {{ medication.doctor.phone }}" ><i class="fa fa-info-circle"></i></a>
                                             </td>
                                             <td>
                                                 Pills Remaining: {{ medication.pills }}

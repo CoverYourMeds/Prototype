@@ -6,6 +6,7 @@ class User(db.Model):
     username = db.Column(db.VARCHAR(50), primary_key=True, nullable=False, unique=True)
     password = db.Column(db.VARCHAR(50), nullable=False)
     type = db.Column(db.VARCHAR(30), nullable=False)
+    name = db.Column(db.VARCHAR(30), nullable=False)
 
 
 class Doctor(db.Model):
