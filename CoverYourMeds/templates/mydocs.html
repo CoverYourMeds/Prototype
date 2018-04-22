@@ -17,7 +17,7 @@
                     {%  for doctor in doctors %}
                     <a class="nav-link {%  if loop.index == 1 %}active{% endif %}" id="v-pills-{{ doctor.name }}-tab" data-toggle="pill" href="#v-pills-{{ doctor.name }}" role="tab"
                        aria-controls-="v-pills-{{ doctor.name }}"aria-selected="{%  if loop.index == 1 %}true{% else %}false
-                    {% endif %}">{{ doctor.name }}</a>
+                    {% endif %}">Dr. {{ doctor.name }}</a>
                     {% endfor %}
                 </div>
             </div>
