@@ -49,16 +49,36 @@
                                                 
                                                 <td>
                                                     {% for value in schedule["sun"][time] %}
+                                                    
                                                     <div class="list-group">
-                                                        <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                        {% if request.cookies.get('user')=="caretaker@gmail.com" %}
+                                                            <a href="#" class="list-group-item list-group-item-action list-group-item-danger" data-toggle="collapse-next">
+                                                        {% else %}
+                                                            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                        {% endif %}
+                                                        
                                                             <i class="fa fa-pills"></i>
                                                             {{ value.name }}
                                                         </a>
+                                                        
                                                         <div class="collapse list-group-submenu">
+                                                            {% if request.cookies.get('user')=="user@gmail.com" %}
                                                             <div class="list-group-item sub-item">
-                                                                <h4>Did you remember to take this medication?</h4>
+                                                                <h5>Did you remember to take this medication?</h5>
                                                                 <button type="button" class="btn btn-success">Yes</button>
                                                                 <button type="button" class="btn btn-danger">No</button>
+                                                            </div>
+                                                            {% else %}
+                                                                <div class="list-group-item list-group-item-danger">
+                                                                    <i class="fa fa-exclamation-triangle"></i>
+                                                                    This medication was missed
+                                                                </div>
+                                                            {% endif %}
+                                                            
+                                                            <div class="list-group-item sub-item">
+                                                                <h5>Pills remaining: {{ value.pills }}</h5>
+                                                                <h5>Perscribed by: Doctor {{ value.doctor.name }}</h5>
+                                                                <a href="mymeds" class="btn btn-primary">Manage</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -87,10 +107,18 @@
                                                         {{ value.name }}
                                                     </a>
                                                     <div class="collapse list-group-submenu">
+                                                        {% if request.cookies.get('user')=="user@gmail.com" %}
                                                         <div class="list-group-item sub-item">
-                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <h5>Did you remember to take this medication?</h5>
                                                             <button type="button" class="btn btn-success">Yes</button>
                                                             <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                        {% endif %}
+                                                        
+                                                        <div class="list-group-item sub-item">
+                                                            <h5>Pills remaining: {{ value.pills }}</h5>
+                                                            <h5>Perscribed by: Doctor {{ value.doctor.name }}</h5>
+                                                            <a href="mymeds" class="btn btn-primary">Manage</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,19 +141,27 @@
                                             
                                         <td>
                                             {% for value in schedule["tues"][time] %}
-                                            <div class="list-group">
-                                                <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
-                                                    <i class="fa fa-pills"></i>
-                                                    {{ value.name }}
-                                                </a>
-                                                <div class="collapse list-group-submenu">
-                                                    <div class="list-group-item sub-item">
-                                                        <h4>Did you remember to take this medication?</h4>
-                                                        <button type="button" class="btn btn-success">Yes</button>
-                                                        <button type="button" class="btn btn-danger">No</button>
+                                                <div class="list-group">
+                                                    <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse-next">
+                                                        <i class="fa fa-pills"></i>
+                                                        {{ value.name }}
+                                                    </a>
+                                                    <div class="collapse list-group-submenu">
+                                                        {% if request.cookies.get('user')=="user@gmail.com" %}
+                                                        <div class="list-group-item sub-item">
+                                                            <h5>Did you remember to take this medication?</h5>
+                                                            <button type="button" class="btn btn-success">Yes</button>
+                                                            <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                        {% endif %}
+                                                        
+                                                        <div class="list-group-item sub-item">
+                                                            <h5>Pills remaining: {{ value.pills }}</h5>
+                                                            <h5>Perscribed by: Doctor {{ value.doctor.name }}</h5>
+                                                            <a href="mymeds" class="btn btn-primary">Manage</a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             {% endfor %}
                                         </td>
                                     </tr>
@@ -151,10 +187,18 @@
                                                             {{ value.name }}
                                                         </a>
                                                         <div class="collapse list-group-submenu">
+                                                            {% if request.cookies.get('user')=="user@gmail.com" %}
                                                             <div class="list-group-item sub-item">
-                                                                <h4>Did you remember to take this medication?</h4>
+                                                                <h5>Did you remember to take this medication?</h5>
                                                                 <button type="button" class="btn btn-success">Yes</button>
                                                                 <button type="button" class="btn btn-danger">No</button>
+                                                            </div>
+                                                            {% endif %}
+                                                            
+                                                            <div class="list-group-item sub-item">
+                                                                <h5>Pills remaining: {{ value.pills }}</h5>
+                                                                <h5>Perscribed by: Doctor {{ value.doctor.name }}</h5>
+                                                                <a href="mymeds" class="btn btn-primary">Manage</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -183,10 +227,18 @@
                                                         {{ value.name }}
                                                     </a>
                                                     <div class="collapse list-group-submenu">
+                                                        {% if request.cookies.get('user')=="user@gmail.com" %}
                                                         <div class="list-group-item sub-item">
-                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <h5>Did you remember to take this medication?</h5>
                                                             <button type="button" class="btn btn-success">Yes</button>
                                                             <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                        {% endif %}
+                                                        
+                                                        <div class="list-group-item sub-item">
+                                                            <h5>Pills remaining: {{ value.pills }}</h5>
+                                                            <h5>Perscribed by: Doctor {{ value.doctor.name }}</h5>
+                                                            <a href="mymeds" class="btn btn-primary">Manage</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -215,10 +267,18 @@
                                                         {{ value.name }}
                                                     </a>
                                                     <div class="collapse list-group-submenu">
+                                                        {% if request.cookies.get('user')=="user@gmail.com" %}
                                                         <div class="list-group-item sub-item">
-                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <h5>Did you remember to take this medication?</h5>
                                                             <button type="button" class="btn btn-success">Yes</button>
                                                             <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                        {% endif %}
+                                                        
+                                                        <div class="list-group-item sub-item">
+                                                            <h5>Pills remaining: {{ value.pills }}</h5>
+                                                            <h5>Perscribed by: Doctor {{ value.doctor.name }}</h5>
+                                                            <a href="mymeds" class="btn btn-primary">Manage</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -247,10 +307,18 @@
                                                         {{ value.name }}
                                                     </a>
                                                     <div class="collapse list-group-submenu">
+                                                        {% if request.cookies.get('user')=="user@gmail.com" %}
                                                         <div class="list-group-item sub-item">
-                                                            <h4>Did you remember to take this medication?</h4>
+                                                            <h5>Did you remember to take this medication?</h5>
                                                             <button type="button" class="btn btn-success">Yes</button>
                                                             <button type="button" class="btn btn-danger">No</button>
+                                                        </div>
+                                                        {% endif %}
+                                                        
+                                                        <div class="list-group-item sub-item">
+                                                            <h5>Pills remaining: {{ value.pills }}</h5>
+                                                            <h5>Perscribed by: Doctor {{ value.doctor.name }}</h5>
+                                                            <a href="mymeds" class="btn btn-primary">Manage</a>
                                                         </div>
                                                     </div>
                                                 </div>
