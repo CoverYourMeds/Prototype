@@ -12,6 +12,7 @@ class Doctor(db.Model):
     __tablename__ = "doctors"
     doc_id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True)
     name = db.Column(db.VARCHAR(150), nullable=False)
+    phone = db.Column(db.VARCHAR(20), nullable=False)
 
     def __init__(self,name):
         self.name=name
