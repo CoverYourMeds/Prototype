@@ -5,7 +5,7 @@ View a hosted version at http://coveryourmeds-coveryourmeds.a.csh.rit.edu/
 
 ## Features
 
-//TODO
+A medication tracker and reminder. This is primarily a UI mockup and does not have every feature fully functional. The appearance of them is shown and is able to to interact with.
 
 ## Usage
 
